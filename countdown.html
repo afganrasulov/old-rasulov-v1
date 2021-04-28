@@ -34,3 +34,13 @@ function getseconds() {
 // take mins remaining (as seconds) away from total seconds remaining
 return secs-Math.round(mins *60);
 }
+</script>
+</head>
+<body>
+
+<div id="timer">
+This is only valid for the next <input id="minutes" type="text" style="width: 14px; border: none; background-color:none; font-size: 16px; font-weight: bold;"> minutes and <input id="seconds" type="text" style="width: 26px; border: none; background-color:none; font-size: 16px; font-weight: bold;"> seconds.
+</div>
+<script>
+countdown();
+</script>
