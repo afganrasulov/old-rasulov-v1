@@ -1,42 +1,46 @@
-<!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="utf-8">
-        <title>Change countdown end date</title>
-    </head>
-    <body>
+<head>
+<title>Countdown</title>
+<script type="text/javascript">
+// set minutes
+var mins = 1;
 
-        <select name="select">
-          <option value="00:10:00">10 min</option>
-          <option value="00:05:00">05 min</option>
-          <option value="00:01:00">01 min</option>
-        </select>
+// calculate the seconds (don't change this! unless time progresses at a different speed for you...)
+var secs = mins * 60;
+function countdown() {
+setTimeout('Decrement()',1000);
+}
+function Decrement() {
+if (document.getElementById) {
+minutes = document.getElementById("minutes");
+seconds = document.getElementById("seconds");
+// if less than a minute remaining
+if (seconds < 59) {
+seconds.value = secs;
+} else {
+minutes.value = getminutes();
+seconds.value = getseconds();
+}
+secs--;
+setTimeout('Decrement()',1000);
+}
+}
+function getminutes() {
+// minutes is seconds divided by 60, rounded down
+mins = Math.floor(secs / 60);
+return mins;
+}
+function getseconds() {
+// take mins remaining (as seconds) away from total seconds remaining
+return secs-Math.round(mins *60);
+}
+</script>
+</head>
+<body>
 
-        <time id="my-countdown" datetime="00:30:00">30 min</time>
-
-        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-        <script src="http://kemar.github.io/jquery.countdown/jquery.countdown.js"></script>
-        <script>
-
-        window.jQuery(function ($) {
-
-            // Start a countdown.
-            $('#my-countdown').countDown();
-
-            function resetCountdown(endDate) {
-              // Replace the old countdown with a new one but keep the same ID!
-              $('#my-countdown').countDown('destroy').replaceWith('<time id="my-countdown"></time>');
-              var newCountdown = $('#my-countdown');
-              newCountdown.attr('datetime', endDate).countDown();
-            }
-
-            $('select').on('change', function () {
-              var endDate = $(this).find('option:selected').val();
-              resetCountdown(endDate);
-            });
-
-        });
-        </script>
-
-    </body>
-</html>
+<div id="timer">
+This is only valid for the next <input id="minutes" type="text" style="width: 14px; border: none; background-color:none; font-size: 16px; font-weight: bold;"> minutes and <input id="seconds" type="text" style="width: 26px; border: none; background-color:none; font-size: 16px; font-weight: bold;"> seconds.
+</div>
+<script>
+countdown();
+</script>
