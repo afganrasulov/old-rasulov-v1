@@ -1,7 +1,14 @@
 <html>
 <head>
 <style>
-
+body {
+    padding: 0;
+    margin: 0;
+    font-size: 1.7em;
+    font-family: sans-serif;
+    font-weight: 800;
+}
+  
 </style>
 <title>Countdown</title>
 <script type="text/javascript">
@@ -42,7 +49,7 @@ return secs-Math.round(mins *60);
 <body>
 
 <div id="timer">
-Sınırlı bir süre için geçerlidir<input id="minutes" type="text" style="width: 5%; border: none; background-color:none; font-size: 2em; font-weight: bold;"> dakika <input id="seconds" type="text" style="width: 5%; border: none; background-color:none; font-size: 2em; font-weight: bold;"> saniye.
+Sınırlı bir süre için geçerlidir<input id="minutes" type="text" style="width: 50px; border: none; background-color:transparent; font-size: 1em; font-weight: bold;"> dakika <input id="seconds" type="text" style="width: 50px; border: none; background-color:transparent; font-size: 1em; font-weight: bold;"> saniye.
 </div>
 <script>
 countdown();
