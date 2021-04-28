@@ -3,7 +3,7 @@
 <title>Countdown</title>
 <script type="text/javascript">
 // set minutes
-var mins = 1;
+var mins = 16;
 
 // calculate the seconds (don't change this! unless time progresses at a different speed for you...)
 var secs = mins * 60;
@@ -39,7 +39,7 @@ return secs-Math.round(mins *60);
 <body>
 
 <div id="timer">
-This is only valid for the next <input id="minutes" type="text" style="width: 14px; border: none; background-color:none; font-size: 16px; font-weight: bold;"> minutes and <input id="seconds" type="text" style="width: 26px; border: none; background-color:none; font-size: 16px; font-weight: bold;"> seconds.
+Sınırlı bir süre için geçerlidir<input id="minutes" type="text" style="width: 14px; border: none; background-color:none; font-size: 16px; font-weight: bold;"> dakika <input id="seconds" type="text" style="width: 26px; border: none; background-color:none; font-size: 16px; font-weight: bold;"> saniye.
 </div>
 <script>
 countdown();
